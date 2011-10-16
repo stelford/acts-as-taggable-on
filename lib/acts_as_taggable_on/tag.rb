@@ -1,6 +1,7 @@
 module ActsAsTaggableOn
   class Tag < ::ActiveRecord::Base
-    establish_connection "other_#{Rails.env}" if Rails.configuration.database_configuration.has_key? "other_#{Rails.env}"
+    establish_connection "other_#{Rails.env}"
+    #establish_connection "other_#{Rails.env}" if Rails.configuration.database_configuration.has_key? "other_#{Rails.env}"
     include ActsAsTaggableOn::ActiveRecord::Backports if ::ActiveRecord::VERSION::MAJOR < 3
     include ActsAsTaggableOn::Utils
       
